@@ -39,7 +39,7 @@ helpers do
 
   def get_token(token)
     json = REDIS.get(token)
-    logger.info "Getting token #{token} and found json #{data.to_s}"
+    logger.info "Getting token #{token} and found json #{json.to_s}"
     data = JSON.parse(json)
     data
   end
