@@ -1,6 +1,7 @@
 GITHUB_KEY=
 GITHUB_SECRET=
+GITHUB_USERNAME=barryf
 
 REDIS_URL=redis://127.0.0.1:6379
 
-COOKIE_SECRET=
+COOKIE_SECRET=choose_a_strong_password_or_phrase

@@ -81,6 +81,12 @@ get '/auth' do
 end
 
 get '/auth/github/callback' do
+  # confirm auth'd github username matches my github username
+  username = request.env['omniauth.auth']['info']['nickname']
+  unless username == ENV['GITHUB_USERNAME']
+    halt_error("GitHub username (#{username}) does not match.")
+  end
+
   code = SecureRandom.hex(20)
   set_auth(code, session[:redirect_uri], session[:client_id], session[:me],
            session[:scope])
