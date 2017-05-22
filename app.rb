@@ -148,7 +148,5 @@ get '/token' do
   if data.nil? || data.empty?
     halt_error("Token not found (or has expired).")
   end
-  #render_data(data)
-  content_type 'application/x-www-form-urlencoded'
-  URI.encode_www_form(data)
+  render_data(data)
 end
