@@ -87,6 +87,10 @@ get '/auth/github/callback' do
     halt_error("GitHub username (#{username}) does not match.")
   end
 
+  if session.empty?
+    halt_error("Session has expired during authorization. Please try again.")
+  end
+
   code = SecureRandom.hex(20)
   set_auth(code, session[:redirect_uri], session[:client_id], session[:me],
            session[:scope])
