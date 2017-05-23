@@ -33,15 +33,21 @@ helpers do
     json = { me: me, scope: scope, client_id: client_id }.to_json
     REDIS.set(token, json)
     logger.info "Setting token #{token} with json #{json.to_s}"
-    expires = 2_592_000 # token lasts for 30 days
-    REDIS.expire(token, expires)
+    set_token_expiry(token)
   end
 
   def get_token(token)
     json = REDIS.get(token)
     logger.info "Getting token #{token} and found json #{json.to_s}"
     data = JSON.parse(json)
+    # reset expiry with every use
+    set_token_expiry(token)
     data
+  end
+
+  def set_token_expiry(token)
+    # token lasts for 30 days
+    REDIS.expire(token, 2_592_000)
   end
 
   def render_data(data)
