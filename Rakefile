@@ -25,3 +25,9 @@ task :key, :key do |t, args|
     puts "Key was not found."
   end
 end
+
+desc "Flush the Redis store."
+task :flush do
+  REDIS.flushall
+  puts "Flushed."
+end
