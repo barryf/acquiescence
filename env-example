@@ -1,3 +1,5 @@
+# rename to .env when developing locally
+
 GITHUB_KEY=
 GITHUB_SECRET=
 GITHUB_USERNAME=barryf
