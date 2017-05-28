@@ -64,6 +64,10 @@ helpers do
     logger.info "Halted on error #{message}"
     halt message
   end
+
+  def h(text)
+    Rack::Utils.escape_html(text)
+  end
 end
 
 get '/' do

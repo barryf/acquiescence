@@ -20,20 +20,20 @@
             <thead>
               <tr>
                 <th>me</th>
-                <th><%= params[:me] %></th>
+                <th><%= h params[:me] %></th>
               </tr>
             </thead>
             <tr>
               <th>client_id</th>
-              <td><%= params[:client_id] %></td>
+              <td><%= h params[:client_id] %></td>
             </tr>
             <tr>
               <th>redirect_uri</th>
-              <td><%= params[:redirect_uri] %></td>
+              <td><%= h params[:redirect_uri] %></td>
             </tr>
             <tr>
               <th>scope(s)</th>
-              <td><code><%= params[:scope] %></code></td>
+              <td><code><%= h params[:scope] %></code></td>
             </tr>
           </table>
 
