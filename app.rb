@@ -85,7 +85,7 @@ get '/auth' do
   session[:client_id] = params[:client_id]
   session[:me] = params[:me]
   session[:state] = params[:state]
-  session[:scope] = params[:scope]
+  session[:scope] = params[:scope] || ""
 
   erb :auth
 end
